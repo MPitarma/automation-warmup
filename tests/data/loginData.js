@@ -18,3 +18,11 @@ export const USERS = {
     password: "wrongPassword",
   },
 };
+
+export const MESSAGES = {
+   successfulLoginMessage: "User successfully logged in!",
+   blockedAccountMessage:   "User blocked!",
+   invalidUserMessage: "User not found!",
+   wrongPasswordMessage: "Incorrect username or password!",
+   wrongPassword3timesMessage: "User temporarily blocked!" 
+};

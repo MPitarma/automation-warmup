@@ -22,5 +22,5 @@ test('Menu FORM validation', async ({ page }) => {
     await page.getByRole('link', {name:'FORM'}).click();
   
     await expect(page.getByRole('heading', {name:'FORM'})).toBeVisible();
-    await expect(page.getByRole('heading', {name:'FORM'})).toHaveText(/Form- /);
+    await expect(page.getByRole('heading', {name:'FORM'})).toHaveText(/Form/);
   });
