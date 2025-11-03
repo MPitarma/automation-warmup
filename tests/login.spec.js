@@ -1,5 +1,5 @@
-import test, { expect } from "@playwright/test";
 import { USERS, MESSAGES } from "./data/loginData";
+import test, { expect } from "@playwright/test";
 import { beforeEach } from "node:test";
 
 test.describe("LOGIN SUITE", async () => {

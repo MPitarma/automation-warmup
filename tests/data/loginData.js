@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
+import path from 'path';
 
-dotenv.config({ quiet: true });
+dotenv.config({ path: path.resolve(__dirname, '.env'), quiet: true });
 
 export const USERS = {
   successfulLogin: {
