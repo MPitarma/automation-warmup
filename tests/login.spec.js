@@ -2,13 +2,11 @@ import test, { expect } from "@playwright/test";
 import { USERS, MESSAGES } from "./data/loginData";
 import { users } from "./data/loginData.json";
 import { beforeEach } from "node:test";
-import dotenv from "dotenv";
-import path from "path";
 
-dotenv.config({ path: path.resolve(__dirname, ".env") });
-
-test.beforeEach(async ({ page }) => {
-  await page.goto("/login");
+test.describe("LOGIN SUITE", async () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/login");
+  });
 });
 
 test("Login successful", async ({ page }) => {
@@ -22,12 +20,7 @@ test("Login successful", async ({ page }) => {
     await page.getByRole("button", { name: "Login" }).click();
   });
 
-  //   test.step("Exepct success message to be visible", async () => {
-  //     await expect(page.getByText("User successfully logged in!")).toBeVisible();
-  //   });
-  await expect(
-    page.getByText(MESSAGES.successfulLoginMessage)
-  ).toBeVisible();
+  await expect(page.getByText(MESSAGES.successfulLoginMessage)).toBeVisible();
 });
 
 test("Login - blocked account", async ({ page }) => {
@@ -41,9 +34,6 @@ test("Login - blocked account", async ({ page }) => {
     await page.getByRole("button", { name: "Login" }).click();
   });
 
-  //   test.step("Exepct success message to be visible", async () => {
-  //     await expect(page.getByText("User blocked!")).toBeVisible();
-  //   });
   await expect(page.getByText(MESSAGES.blockedAccountMessage)).toBeVisible();
 });
 
@@ -58,9 +48,6 @@ test("Login - invalid user", async ({ page }) => {
     await page.getByRole("button", { name: "Login" }).click();
   });
 
-  //   test.step("Exepct user not found message to be visible", async () => {
-  //     await expect(page.getByText("User not found!")).toBeVisible();
-  //   });
   await expect(page.getByText(MESSAGES.invalidUserMessage)).toBeVisible();
 });
 
@@ -75,14 +62,7 @@ test("Login - wrong password", async ({ page }) => {
     await page.getByRole("button", { name: "Login" }).click();
   });
 
-  //   test.step("Expect incorrect or username message to be visible", async () => {
-  //     await expect(
-  //       page.getByText("Incorrect username or password!")
-  //     ).toBeVisible();
-  //   });
-  await expect(
-    page.getByText(MESSAGES.wrongPasswordMessage)
-  ).toBeVisible();
+  await expect(page.getByText(MESSAGES.wrongPasswordMessage)).toBeVisible();
 });
 
 test("Login - 3 wrong password blocks user", async ({ page }) => {
@@ -97,9 +77,7 @@ test("Login - 3 wrong password blocks user", async ({ page }) => {
       await page.getByRole("button", { name: "Login" }).click();
     }
   });
-  //   test.step("Expect blocked user message to be visible", async () => {
-  //     await expect(page.getByText("User temporarily blocked!")).toBeVisible();
-  //   });
+
   await expect(
     page.getByText(MESSAGES.wrongPassword3timesMessage)
   ).toBeVisible();

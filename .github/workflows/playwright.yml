@@ -8,6 +8,17 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    env:
+      SUCCESSFUL_LOGIN_USERNAME: ${{ secrets.SUCCESSFUL_LOGIN_USERNAME }}
+      SUCCESSFUL_LOGIN_PASSWORD: ${{ secrets.SUCCESSFUL_LOGIN_PASSWORD }}
+      BLOCKED_ACCOUNT_USERNAME: ${{ secrets.BLOCKED_ACCOUNT_USERNAME }}
+      BLOCKED_ACCOUNT_PASSWORD: ${{ secrets.BLOCKED_ACCOUNT_PASSWORD }}
+      INVALID_USER_USERNAME: ${{ secrets.INVALID_USER_USERNAME }}
+      INVALID_USER_PASSWORD: ${{ secrets.INVALID_USER_PASSWORD }}
+      WRONG_PAASSWORD_USERNAME: ${{ secrets.WRONG_PAASSWORD_USERNAME }}
+      WRONG_PAASSWORD_PASSWORD: ${{ secrets.WRONG_PAASSWORD_PASSWORD }}
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
