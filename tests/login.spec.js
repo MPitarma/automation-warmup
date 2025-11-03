@@ -26,7 +26,7 @@ test("Login successful", async ({ page }) => {
   //     await expect(page.getByText("User successfully logged in!")).toBeVisible();
   //   });
   await expect(
-    page.getByText(process.env.SUCCESSFUL_LOGIN_MESSAGE)
+    page.getByText(MESSAGES.successfulLoginMessage)
   ).toBeVisible();
 });
 
@@ -44,7 +44,7 @@ test("Login - blocked account", async ({ page }) => {
   //   test.step("Exepct success message to be visible", async () => {
   //     await expect(page.getByText("User blocked!")).toBeVisible();
   //   });
-  await expect(page.getByText(process.env.BLOCKED_USER_MESSAGE)).toBeVisible();
+  await expect(page.getByText(MESSAGES.blockedAccountMessage)).toBeVisible();
 });
 
 test("Login - invalid user", async ({ page }) => {
@@ -61,7 +61,7 @@ test("Login - invalid user", async ({ page }) => {
   //   test.step("Exepct user not found message to be visible", async () => {
   //     await expect(page.getByText("User not found!")).toBeVisible();
   //   });
-  await expect(page.getByText(process.env.INVALID_USER_MESSSAGE)).toBeVisible();
+  await expect(page.getByText(MESSAGES.invalidUserMessage)).toBeVisible();
 });
 
 test("Login - wrong password", async ({ page }) => {
@@ -81,7 +81,7 @@ test("Login - wrong password", async ({ page }) => {
   //     ).toBeVisible();
   //   });
   await expect(
-    page.getByText(process.env.WRONG_PASSWROD_MESSAGE)
+    page.getByText(MESSAGES.wrongPasswordMessage)
   ).toBeVisible();
 });
 
@@ -101,6 +101,6 @@ test("Login - 3 wrong password blocks user", async ({ page }) => {
   //     await expect(page.getByText("User temporarily blocked!")).toBeVisible();
   //   });
   await expect(
-    page.getByText(process.env.WRONG_PASSWORD_MESSAGE_3_TIMES_MESSAGE)
+    page.getByText(MESSAGES.wrongPassword3timesMessage)
   ).toBeVisible();
 });
