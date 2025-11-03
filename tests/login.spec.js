@@ -15,10 +15,10 @@ test("Login successful", async ({ page }) => {
   test.step("Write login info and click submit", async () => {
     await page
       .getByRole("textbox", { name: "Type your username" })
-      .fill(process.env.SUCCESSFUL_LOGIN_USERNAME);
+      .fill(USERS.successfulLogin.username);
     await page
       .getByRole("textbox", { name: "Type your password" })
-      .fill(process.env.SUCCESSFUL_LOGIN_PASSWORD);
+      .fill(USERS.successfulLogin.password);
     await page.getByRole("button", { name: "Login" }).click();
   });
 
@@ -34,10 +34,10 @@ test("Login - blocked account", async ({ page }) => {
   test.step("Write login info and click submit", async () => {
     await page
       .getByRole("textbox", { name: "Type your username" })
-      .fill(process.env.BLOCKED_ACCOUNT_USERNAME);
+      .fill(USERS.blockedAccount.username);
     await page
       .getByRole("textbox", { name: "Type your password" })
-      .fill(process.env.BLOCKED_ACCOUNT_PASSWORD);
+      .fill(USERS.blockedAccount.password);
     await page.getByRole("button", { name: "Login" }).click();
   });
 
@@ -51,10 +51,10 @@ test("Login - invalid user", async ({ page }) => {
   test.step("Write login info and click submit", async () => {
     await page
       .getByRole("textbox", { name: "Type your username" })
-      .fill(process.env.INVALID_USER_USERNAME);
+      .fill(USERS.invalidUser.username);
     await page
       .getByRole("textbox", { name: "Type your password" })
-      .fill(process.env.INVALID_USER_PASSWORD);
+      .fill(USERS.invalidUser.password);
     await page.getByRole("button", { name: "Login" }).click();
   });
 
@@ -68,10 +68,10 @@ test("Login - wrong password", async ({ page }) => {
   test.step("Write login info and click submit", async () => {
     await page
       .getByRole("textbox", { name: "Type your username" })
-      .fill(process.env.WRONG_PAASSWORD_USERNAME);
+      .fill(USERS.wrongPassword.username);
     await page
       .getByRole("textbox", { name: "Type your password" })
-      .fill(process.env.WRONG_PAASSWORD_PASSWORD);
+      .fill(USERS.wrongPassword.password);
     await page.getByRole("button", { name: "Login" }).click();
   });
 
@@ -89,10 +89,10 @@ test("Login - 3 wrong password blocks user", async ({ page }) => {
   test.step("Write login info and click submit", async () => {
     await page
       .getByRole("textbox", { name: "Type your username" })
-      .fill(process.env.WRONG_PAASSWORD_USERNAME);
+      .fill(USERS.wrongPassword.username);
     await page
       .getByRole("textbox", { name: "Type your password" })
-      .fill(process.env.WRONG_PAASSWORD_PASSWORD);
+      .fill(USERS.wrongPassword.password);
     for (let index = 0; index < 3; index++) {
       await page.getByRole("button", { name: "Login" }).click();
     }
