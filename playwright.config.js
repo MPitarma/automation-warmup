@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from "dotenv";
-import path from 'path';
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -13,9 +12,6 @@ import path from 'path';
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
-
-// Read from ".env" file.
-dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 export default defineConfig({
   testDir: './tests',

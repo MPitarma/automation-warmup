@@ -2,10 +2,8 @@ import { USERS, MESSAGES } from "./data/loginData";
 import test, { expect } from "@playwright/test";
 import { beforeEach } from "node:test";
 
-test.describe("LOGIN SUITE", async () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto("/login");
-  });
+test.beforeEach(async ({ page }) => {
+  await page.goto("/login");
 });
 
 test("Login successful", async ({ page }) => {
